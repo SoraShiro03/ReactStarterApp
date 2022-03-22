@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+}
+nav {
+    display: flex;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    margin-left: 30px;
+    color: aquamarine;
+}
+.menu--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
+.dropDown {
+    display: flex;
+    flex-direction: column;
+}
+.dropDown--box {
+    background-color: white;
+    position: absolute;
+    margin-top: 39.5px;
+    padding: 1%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: .5s ease;
+}
+.dropDown--box ul {
+    list-style: square;
+    color: #595959;
+    font-size: 120%;
+}
+.links--container {
+    display: grid;
+    grid-template: auto auto / repeat(auto-fit, 1fr);
+}
+.hide {
+    display: none;
+    transition: .7s ease;
+}
+.user--auth {
+    margin: 0px 10px 0px 10px;
+    padding: 0 10px 0px 10px;
+}
+.user--auth > a {
+    margin: 0px 10px 0px 10px;
+    padding: 10px;
+    font-size: 140%;
+    border: 2px solid aquamarine;
+    text-decoration: none;
+    border-radius: 5px;
+    
+}
+.user--auth a:last-child {
+    background-color: aquamarine;
+}
+.user--auth a:first-child:hover {
+    background-color: aqua;
+    border: 2px solid aqua;
+    transition: .5s ease;
+}
+.user--auth a:last-child:hover {
+    background-color: white;
+    transition: .5s ease;
+    border: 2px solid aquamarine;
+}

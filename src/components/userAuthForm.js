@@ -2,7 +2,9 @@ import React from "react";
 
 export default function UserAuthForm() {
     return (
-        <div></div>
+        <div className="background--display">
+            <Login />
+        </div>
     )
 }
 
@@ -14,7 +16,26 @@ export function Register() {
 
 export function Login() {
     return (
-        <div></div>
+        <div className="card">
+            <div className="card--topic">
+                <h1>Login</h1>
+            </div>
+            <form className="user--data">
+                <input
+                    name=""
+                    value=""
+                    type="text"
+                    placeholder="username"
+                />
+                <input
+                    name=""
+                    value=""
+                    type="text"
+                    placeholder="password"
+                />
+            </form>
+            <button>Submit</button>
+        </div>
     )
 }
 
