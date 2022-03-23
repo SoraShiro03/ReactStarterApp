@@ -1,58 +1,102 @@
 import React from "react";
 
 export default function UserAuthForm() {
+    const [userData, setData] = React.useState({
+        username: "",
+        password1: "",
+        password2: "",
+        agree: true,
+    })
+    // const [condition, setCondition] = React.useState(false)
+    function changeData(e) {
+        const { name, value, type, checked } = e.target
+        setData(prev => (
+            {
+                ...prev,
+                [name]: type === 'checkbox' ? checked : value,
+            }
+        ))
+    }
+    function sendToBackEnd(e) {
+        e.preventDefault();
+        if ((userData.password1 === userData.password2) && userData.agree) {
+            console.log("send!: ", userData)
+            // setCondition(true)
+        }
+        else {
+            console.log("do not match")
+        }
+
+    }
+    console.log(userData)
     return (
         <div className="background--display">
+            <Register
+                name={userData.name}
+                passowrd1={userData.password1}
+                passowrd2={userData.password2}
+                checked={userData.checked}
+                handleChange={(e) => changeData(e)}
+                sendToBackEnd={(e) => sendToBackEnd(e)}
+            // condition={condition}
+            />
             {/* <Logout /> */}
-            <Register />
-            {/* <Login /> */}
+            {/* <Login
+                name={userData.name}
+                passowrd1={userData.password1}
+                handleChange={(e) => changeData(e)}
+            /> */}
         </div>
     )
 }
 
-export function Register() {
+export function Register(props) {
     return (
         <div className="card">
             <div className="card--topic">
                 <h1>Register</h1>
             </div>
-            <form className="user--data">
+            <form onSubmit={props.sendToBackEnd} className="user--data">
                 <input
-                    name=""
-                    value=""
+                    onChange={props.handleChange}
+                    name="username"
+                    value={props.name}
                     type="text"
                     placeholder="username"
                 />
                 <input
-                    name=""
-                    value=""
-                    type="text"
+                    onChange={props.handleChange}
+                    name="password1"
+                    value={props.password1}
+                    type="password"
                     placeholder="password"
                 />
                 <input
-                    name=""
-                    value=""
-                    type="text"
+                    onChange={props.handleChange}
+                    name="password2"
+                    value={props.password2}
+                    type="password"
                     placeholder="confirm password"
                 />
                 <div className="checkbox--field">
                     <input
                         className="form--checkbox"
-                        name="checkbox"
-                        checked=""
+                        onChange={props.handleChange}
+                        name="agree"
+                        checked={props.checked}
                         type="checkbox"
                         placeholder="password"
                     />
                     <label htmlFor="checked">Agree our Policy</label>
                 </div>
+                <button>Submit</button>
             </form>
 
-            <button>Submit</button>
         </div>
     )
 }
 
-export function Login() {
+export function Login(props) {
     return (
         <div className="card">
             <div className="card--topic">
@@ -60,14 +104,16 @@ export function Login() {
             </div>
             <form className="user--data">
                 <input
-                    name=""
-                    value=""
+                    onChange={props.handleChange}
+                    name="username"
+                    value={props.username}
                     type="text"
                     placeholder="username"
                 />
                 <input
-                    name=""
-                    value=""
+                    onChange={props.handleChange}
+                    name="password1"
+                    value={props.password1}
                     type="text"
                     placeholder="password"
                 />
@@ -79,10 +125,10 @@ export function Login() {
     )
 }
 
-export function Logout() {
+export function Logout(props) {
     const mystyles = {
         backgroundColor: "#fff",
-        minWidth: '350px',
+        minWidth: '300px',
         minHeight: '350px'
     }
     return (
