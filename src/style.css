@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 * {
     margin: 0;
+    font-family: 'Lato', sans-serif;
 }
 nav {
     display: flex;
@@ -22,6 +24,22 @@ nav {
 .dropDown {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    transition: .5s ease;
+    
+}
+.dropDown:hover {
+
+    transition: .5s ease;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
 }
 .dropDown--box {
     background-color: white;
@@ -35,6 +53,13 @@ nav {
     list-style: square;
     color: #595959;
     font-size: 120%;
+    transition: .5s ease;
+}
+.dropDown--box ul > li:hover {
+    transform: scale(1.1);
+    color: #2cc2fd;
+    transition: .3s ease;
+    padding: 5px;
 }
 .links--container {
     display: grid;
@@ -42,7 +67,7 @@ nav {
 }
 .hide {
     display: none;
-    transition: .7s ease;
+    transition: .5s ease;
 }
 .user--auth {
     margin: 0px 10px 0px 10px;
