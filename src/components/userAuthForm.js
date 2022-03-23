@@ -34,8 +34,10 @@ export function Login() {
                     placeholder="password"
                 />
             </form>
+            <p>Forget password?</p>
             <button>Submit</button>
         </div>
+
     )
 }
 
